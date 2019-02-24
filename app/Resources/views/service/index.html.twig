@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends "widget-admin.html.twig" %}
 
 {% block body %}
     <h1>Services list</h1>
@@ -7,7 +7,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Libelle</th>
+                <th>Name</th>
                 <th>Type</th>
                 <th>Parentid</th>
                 <th>Actions</th>
@@ -17,7 +17,7 @@
         {% for service in services %}
             <tr>
                 <td><a href="{{ path('service_show', { 'id': service.id }) }}">{{ service.id }}</a></td>
-                <td>{{ service.libelle }}</td>
+                <td>{{ service.name }}</td>
                 <td>{{ service.type }}</td>
                 <td>{{ service.parentId }}</td>
                 <td>

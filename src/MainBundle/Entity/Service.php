@@ -5,12 +5,12 @@ namespace MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * service
+ * Service
  *
  * @ORM\Table(name="service")
- * @ORM\Entity(repositoryClass="MainBundle\Repository\serviceRepository")
+ * @ORM\Entity(repositoryClass="MainBundle\Repository\ServiceRepository")
  */
-class service
+class Service
 {
     /**
      * @var int
@@ -24,9 +24,9 @@ class service
     /**
      * @var string
      *
-     * @ORM\Column(name="libelle", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $libelle;
+    private $name;
 
     /**
      * @var string
@@ -38,7 +38,7 @@ class service
     /**
      * @var int
      *
-     * @ORM\Column(name="parent_id", type="integer")
+     * @ORM\Column(name="Parent_id", type="integer")
      */
     private $parentId;
 
@@ -54,27 +54,27 @@ class service
     }
 
     /**
-     * Set libelle.
+     * Set name.
      *
-     * @param string $libelle
+     * @param string $name
      *
-     * @return service
+     * @return Service
      */
-    public function setLibelle($libelle)
+    public function setName($name)
     {
-        $this->libelle = $libelle;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get libelle.
+     * Get name.
      *
      * @return string
      */
-    public function getLibelle()
+    public function getName()
     {
-        return $this->libelle;
+        return $this->name;
     }
 
     /**
@@ -82,7 +82,7 @@ class service
      *
      * @param string $type
      *
-     * @return service
+     * @return Service
      */
     public function setType($type)
     {
@@ -106,7 +106,7 @@ class service
      *
      * @param int $parentId
      *
-     * @return service
+     * @return Service
      */
     public function setParentId($parentId)
     {

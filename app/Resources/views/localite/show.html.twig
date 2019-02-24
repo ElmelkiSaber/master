@@ -1,9 +1,6 @@
 {% extends "widget-admin.html.twig" %}
+
 {% block body %}
-        <div class="row">
-            <div class="col-lg-12 grid-margin">
-              <div class="card">
-                              <div class="card-body">
     <h1>Localite</h1>
 
     <table>
@@ -13,8 +10,8 @@
                 <td>{{ localite.id }}</td>
             </tr>
             <tr>
-                <th>Libelle</th>
-                <td>{{ localite.libelle }}</td>
+                <th>Name</th>
+                <td>{{ localite.name }}</td>
             </tr>
             <tr>
                 <th>Parentid</th>
@@ -36,8 +33,4 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
-    <div>
-    <div>
-    <div>
-    <div>
 {% endblock %}

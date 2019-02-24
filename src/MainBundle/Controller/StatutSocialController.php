@@ -10,14 +10,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Statutsocial controller.
  *
- * @Route("statutsocial")
+ * @Route("statut/social")
  */
 class StatutSocialController extends Controller
 {
     /**
      * Lists all statutSocial entities.
      *
-     * @Route("/", name="statutsocial_index")
+     * @Route("/", name="statut_social_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -34,7 +34,7 @@ class StatutSocialController extends Controller
     /**
      * Creates a new statutSocial entity.
      *
-     * @Route("/new", name="statutsocial_new")
+     * @Route("/new", name="statut_social_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -48,7 +48,7 @@ class StatutSocialController extends Controller
             $em->persist($statutSocial);
             $em->flush();
 
-            return $this->redirectToRoute('statutsocial_show', array('id' => $statutSocial->getId()));
+            return $this->redirectToRoute('statut_social_show', array('id' => $statutSocial->getId()));
         }
 
         return $this->render('statutsocial/new.html.twig', array(
@@ -60,7 +60,7 @@ class StatutSocialController extends Controller
     /**
      * Finds and displays a statutSocial entity.
      *
-     * @Route("/{id}", name="statutsocial_show")
+     * @Route("/{id}", name="statut_social_show")
      * @Method("GET")
      */
     public function showAction(StatutSocial $statutSocial)
@@ -76,7 +76,7 @@ class StatutSocialController extends Controller
     /**
      * Displays a form to edit an existing statutSocial entity.
      *
-     * @Route("/{id}/edit", name="statutsocial_edit")
+     * @Route("/{id}/edit", name="statut_social_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, StatutSocial $statutSocial)
@@ -88,7 +88,7 @@ class StatutSocialController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('statutsocial_edit', array('id' => $statutSocial->getId()));
+            return $this->redirectToRoute('statut_social_edit', array('id' => $statutSocial->getId()));
         }
 
         return $this->render('statutsocial/edit.html.twig', array(
@@ -101,7 +101,7 @@ class StatutSocialController extends Controller
     /**
      * Deletes a statutSocial entity.
      *
-     * @Route("/{id}", name="statutsocial_delete")
+     * @Route("/{id}", name="statut_social_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, StatutSocial $statutSocial)
@@ -115,7 +115,7 @@ class StatutSocialController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('statutsocial_index');
+        return $this->redirectToRoute('statut_social_index');
     }
 
     /**
@@ -128,7 +128,7 @@ class StatutSocialController extends Controller
     private function createDeleteForm(StatutSocial $statutSocial)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('statutsocial_delete', array('id' => $statutSocial->getId())))
+            ->setAction($this->generateUrl('statut_social_delete', array('id' => $statutSocial->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

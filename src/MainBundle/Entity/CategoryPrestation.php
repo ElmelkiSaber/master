@@ -5,10 +5,10 @@ namespace MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * categoryPrestation
+ * CategoryPrestation
  *
  * @ORM\Table(name="category_prestation")
- * @ORM\Entity(repositoryClass="MainBundle\Repository\categoryPrestationRepository")
+ * @ORM\Entity(repositoryClass="MainBundle\Repository\CategoryPrestationRepository")
  */
 class CategoryPrestation
 {
@@ -24,9 +24,9 @@ class CategoryPrestation
     /**
      * @var string
      *
-     * @ORM\Column(name="libelle", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $libelle;
+    private $name;
 
     /**
      * @var string
@@ -54,27 +54,27 @@ class CategoryPrestation
     }
 
     /**
-     * Set libelle.
+     * Set name.
      *
-     * @param string $libelle
+     * @param string $name
      *
-     * @return categoryPrestation
+     * @return CategoryPrestation
      */
-    public function setLibelle($libelle)
+    public function setName($name)
     {
-        $this->libelle = $libelle;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get libelle.
+     * Get name.
      *
      * @return string
      */
-    public function getLibelle()
+    public function getName()
     {
-        return $this->libelle;
+        return $this->name;
     }
 
     /**
@@ -82,7 +82,7 @@ class CategoryPrestation
      *
      * @param string $type
      *
-     * @return categoryPrestation
+     * @return CategoryPrestation
      */
     public function setType($type)
     {
@@ -106,7 +106,7 @@ class CategoryPrestation
      *
      * @param int $parentId
      *
-     * @return categoryPrestation
+     * @return CategoryPrestation
      */
     public function setParentId($parentId)
     {

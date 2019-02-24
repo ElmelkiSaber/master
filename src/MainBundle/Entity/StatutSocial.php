@@ -5,10 +5,10 @@ namespace MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * StautSocial
+ * StatutSocial
  *
  * @ORM\Table(name="statut_social")
- * @ORM\Entity(repositoryClass="MainBundle\Repository\StautSocialRepository")
+ * @ORM\Entity(repositoryClass="MainBundle\Repository\StatutSocialRepository")
  */
 class StatutSocial
 {
@@ -24,23 +24,23 @@ class StatutSocial
     /**
      * @var string
      *
-     * @ORM\Column(name="libelle", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $libelle;
+    private $name;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="num_entreprise", type="integer")
+     * @ORM\Column(name="num_entreprise", type="string", length=255)
      */
     private $numEntreprise;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="num_agregation", type="integer")
+     * @ORM\Column(name="num_agreation", type="string", length=255)
      */
-    private $numAgregation;
+    private $numAgreation;
 
 
     /**
@@ -54,35 +54,35 @@ class StatutSocial
     }
 
     /**
-     * Set libelle.
+     * Set name.
      *
-     * @param string $libelle
+     * @param string $name
      *
-     * @return StautSocial
+     * @return StatutSocial
      */
-    public function setLibelle($libelle)
+    public function setName($name)
     {
-        $this->libelle = $libelle;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get libelle.
+     * Get name.
      *
      * @return string
      */
-    public function getLibelle()
+    public function getName()
     {
-        return $this->libelle;
+        return $this->name;
     }
 
     /**
      * Set numEntreprise.
      *
-     * @param int $numEntreprise
+     * @param string $numEntreprise
      *
-     * @return StautSocial
+     * @return StatutSocial
      */
     public function setNumEntreprise($numEntreprise)
     {
@@ -94,7 +94,7 @@ class StatutSocial
     /**
      * Get numEntreprise.
      *
-     * @return int
+     * @return string
      */
     public function getNumEntreprise()
     {
@@ -102,26 +102,26 @@ class StatutSocial
     }
 
     /**
-     * Set numAgregation.
+     * Set numAgreation.
      *
-     * @param int $numAgregation
+     * @param string $numAgreation
      *
-     * @return StautSocial
+     * @return StatutSocial
      */
-    public function setNumAgregation($numAgregation)
+    public function setNumAgreation($numAgreation)
     {
-        $this->numAgregation = $numAgregation;
+        $this->numAgreation = $numAgreation;
 
         return $this;
     }
 
     /**
-     * Get numAgregation.
+     * Get numAgreation.
      *
-     * @return int
+     * @return string
      */
-    public function getNumAgregation()
+    public function getNumAgreation()
     {
-        return $this->numAgregation;
+        return $this->numAgreation;
     }
 }

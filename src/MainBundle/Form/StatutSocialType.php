@@ -13,7 +13,7 @@ class StatutSocialType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('libelle')->add('numEntreprise')->add('numAgregation');
+        $builder->add('name')->add('numEntreprise')->add('numAgreation');
     }/**
      * {@inheritdoc}
      */

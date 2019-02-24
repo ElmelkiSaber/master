@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Categoryprestation controller.
  *
- * @Route("category_prestation")
+ * @Route("category/prestation")
  */
 class CategoryPrestationController extends Controller
 {
@@ -82,7 +82,7 @@ class CategoryPrestationController extends Controller
     public function editAction(Request $request, CategoryPrestation $categoryPrestation)
     {
         $deleteForm = $this->createDeleteForm($categoryPrestation);
-        $editForm = $this->createForm('MainBundle\Form\categoryPrestationType', $categoryPrestation);
+        $editForm = $this->createForm('MainBundle\Form\CategoryPrestationType', $categoryPrestation);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -121,7 +121,7 @@ class CategoryPrestationController extends Controller
     /**
      * Creates a form to delete a categoryPrestation entity.
      *
-     * @param categoryPrestation $categoryPrestation The categoryPrestation entity
+     * @param CategoryPrestation $categoryPrestation The categoryPrestation entity
      *
      * @return \Symfony\Component\Form\Form The form
      */

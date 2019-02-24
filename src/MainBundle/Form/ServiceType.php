@@ -6,21 +6,21 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CategoryPrestationType extends AbstractType
+class ServiceType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('libelle')->add('type')->add('parentId');
+        $builder->add('name')->add('type')->add('parentId');
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MainBundle\Entity\CategoryPrestation'
+            'data_class' => 'MainBundle\Entity\Service'
         ));
     }
 
@@ -29,7 +29,7 @@ class CategoryPrestationType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'mainbundle_categoryprestation';
+        return 'mainbundle_service';
     }
 
 

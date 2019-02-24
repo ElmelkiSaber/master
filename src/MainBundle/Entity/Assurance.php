@@ -29,9 +29,9 @@ class Assurance
     private $name;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="num_police", type="integer")
+     * @ORM\Column(name="numPolice", type="string", length=255)
      */
     private $numPolice;
 
@@ -80,7 +80,7 @@ class Assurance
     /**
      * Set numPolice.
      *
-     * @param int $numPolice
+     * @param string $numPolice
      *
      * @return Assurance
      */
@@ -94,7 +94,7 @@ class Assurance
     /**
      * Get numPolice.
      *
-     * @return int
+     * @return string
      */
     public function getNumPolice()
     {

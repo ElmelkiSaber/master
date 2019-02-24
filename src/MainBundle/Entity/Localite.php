@@ -24,9 +24,9 @@ class Localite
     /**
      * @var string
      *
-     * @ORM\Column(name="libelle", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $libelle;
+    private $name;
 
     /**
      * @var int
@@ -47,27 +47,27 @@ class Localite
     }
 
     /**
-     * Set libelle.
+     * Set name.
      *
-     * @param string $libelle
+     * @param string $name
      *
      * @return Localite
      */
-    public function setLibelle($libelle)
+    public function setName($name)
     {
-        $this->libelle = $libelle;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get libelle.
+     * Get name.
      *
      * @return string
      */
-    public function getLibelle()
+    public function getName()
     {
-        return $this->libelle;
+        return $this->name;
     }
 
     /**

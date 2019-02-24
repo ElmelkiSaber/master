@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends "widget-admin.html.twig" %}
 
 {% block body %}
     <h1>Service</h1>
@@ -10,8 +10,8 @@
                 <td>{{ service.id }}</td>
             </tr>
             <tr>
-                <th>Libelle</th>
-                <td>{{ service.libelle }}</td>
+                <th>Name</th>
+                <td>{{ service.name }}</td>
             </tr>
             <tr>
                 <th>Type</th>

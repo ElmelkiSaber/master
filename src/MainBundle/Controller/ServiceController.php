@@ -40,7 +40,7 @@ class ServiceController extends Controller
     public function newAction(Request $request)
     {
         $service = new Service();
-        $form = $this->createForm('MainBundle\Form\serviceType', $service);
+        $form = $this->createForm('MainBundle\Form\ServiceType', $service);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -79,10 +79,10 @@ class ServiceController extends Controller
      * @Route("/{id}/edit", name="service_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, service $service)
+    public function editAction(Request $request, Service $service)
     {
         $deleteForm = $this->createDeleteForm($service);
-        $editForm = $this->createForm('MainBundle\Form\serviceType', $service);
+        $editForm = $this->createForm('MainBundle\Form\ServiceType', $service);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -104,7 +104,7 @@ class ServiceController extends Controller
      * @Route("/{id}", name="service_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, service $service)
+    public function deleteAction(Request $request, Service $service)
     {
         $form = $this->createDeleteForm($service);
         $form->handleRequest($request);
@@ -121,11 +121,11 @@ class ServiceController extends Controller
     /**
      * Creates a form to delete a service entity.
      *
-     * @param service $service The service entity
+     * @param Service $service The service entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(service $service)
+    private function createDeleteForm(Service $service)
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('service_delete', array('id' => $service->getId())))
