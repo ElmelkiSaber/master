@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Localite</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ localite.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ localite.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Parentid</th>
+                <td>{{ localite.parentId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('localite_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('localite_edit', { 'id': localite.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
