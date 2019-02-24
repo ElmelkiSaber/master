@@ -2,7 +2,7 @@
 
 namespace MainBundle\Controller;
 
-use MainBundle\Entity\service;
+use MainBundle\Entity\Service;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  *
  * @Route("service")
  */
-class serviceController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Lists all service entities.
@@ -24,7 +24,7 @@ class serviceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $services = $em->getRepository('MainBundle:service')->findAll();
+        $services = $em->getRepository('MainBundle:Service')->findAll();
 
         return $this->render('service/index.html.twig', array(
             'services' => $services,
@@ -63,7 +63,7 @@ class serviceController extends Controller
      * @Route("/{id}", name="service_show")
      * @Method("GET")
      */
-    public function showAction(service $service)
+    public function showAction(Service $service)
     {
         $deleteForm = $this->createDeleteForm($service);
 

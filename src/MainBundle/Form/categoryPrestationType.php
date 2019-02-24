@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class categoryPrestationType extends AbstractType
+class CategoryPrestationType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -20,7 +20,7 @@ class categoryPrestationType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MainBundle\Entity\categoryPrestation'
+            'data_class' => 'MainBundle\Entity\CategoryPrestation'
         ));
     }
 

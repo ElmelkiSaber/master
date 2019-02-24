@@ -2,7 +2,7 @@
 
 namespace MainBundle\Controller;
 
-use MainBundle\Entity\categoryPrestation;
+use MainBundle\Entity\CategoryPrestation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  *
  * @Route("category_prestation")
  */
-class categoryPrestationController extends Controller
+class CategoryPrestationController extends Controller
 {
     /**
      * Lists all categoryPrestation entities.
@@ -24,7 +24,7 @@ class categoryPrestationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $categoryPrestations = $em->getRepository('MainBundle:categoryPrestation')->findAll();
+        $categoryPrestations = $em->getRepository('MainBundle:CategoryPrestation')->findAll();
 
         return $this->render('categoryprestation/index.html.twig', array(
             'categoryPrestations' => $categoryPrestations,
@@ -40,7 +40,7 @@ class categoryPrestationController extends Controller
     public function newAction(Request $request)
     {
         $categoryPrestation = new Categoryprestation();
-        $form = $this->createForm('MainBundle\Form\categoryPrestationType', $categoryPrestation);
+        $form = $this->createForm('MainBundle\Form\CategoryPrestationType', $categoryPrestation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class categoryPrestationController extends Controller
      * @Route("/{id}", name="category_prestation_show")
      * @Method("GET")
      */
-    public function showAction(categoryPrestation $categoryPrestation)
+    public function showAction(CategoryPrestation $categoryPrestation)
     {
         $deleteForm = $this->createDeleteForm($categoryPrestation);
 
@@ -79,7 +79,7 @@ class categoryPrestationController extends Controller
      * @Route("/{id}/edit", name="category_prestation_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, categoryPrestation $categoryPrestation)
+    public function editAction(Request $request, CategoryPrestation $categoryPrestation)
     {
         $deleteForm = $this->createDeleteForm($categoryPrestation);
         $editForm = $this->createForm('MainBundle\Form\categoryPrestationType', $categoryPrestation);
@@ -104,7 +104,7 @@ class categoryPrestationController extends Controller
      * @Route("/{id}", name="category_prestation_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, categoryPrestation $categoryPrestation)
+    public function deleteAction(Request $request, CategoryPrestation $categoryPrestation)
     {
         $form = $this->createDeleteForm($categoryPrestation);
         $form->handleRequest($request);
@@ -125,7 +125,7 @@ class categoryPrestationController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(categoryPrestation $categoryPrestation)
+    private function createDeleteForm(CategoryPrestation $categoryPrestation)
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('category_prestation_delete', array('id' => $categoryPrestation->getId())))
