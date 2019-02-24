@@ -4,6 +4,7 @@ namespace UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use UserBundle\Entity\User;
 
 class DefaultController extends Controller
 {
@@ -41,5 +42,18 @@ class DefaultController extends Controller
     public function indexPartenaireAction()
     {
         return $this->render('UserBundle:Default:partenaire.html.twig');
+    }
+    /**
+     * @Route("/dashboard/user/list" , name="user_index")
+     */
+    public function indexUserAction()
+    {
+        $users = $this->getDoctrine()
+        ->getRepository(User::class)
+        ->findAll();
+
+        return $this->render('default/User/index.html.twig', array(
+            'users' => $users
+        ));
     }
 }
