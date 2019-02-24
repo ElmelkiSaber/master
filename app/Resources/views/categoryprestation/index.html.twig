@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Categoryprestations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Type</th>
+                <th>Parentid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categoryPrestation in categoryPrestations %}
+            <tr>
+                <td><a href="{{ path('category_prestation_show', { 'id': categoryPrestation.id }) }}">{{ categoryPrestation.id }}</a></td>
+                <td>{{ categoryPrestation.libelle }}</td>
+                <td>{{ categoryPrestation.type }}</td>
+                <td>{{ categoryPrestation.parentId }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('category_prestation_show', { 'id': categoryPrestation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('category_prestation_edit', { 'id': categoryPrestation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('category_prestation_new') }}">Create a new categoryPrestation</a>
+        </li>
+    </ul>
+{% endblock %}
