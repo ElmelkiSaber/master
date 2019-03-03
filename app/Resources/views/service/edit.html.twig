@@ -1,21 +1,35 @@
 {% extends "widget-admin.html.twig" %}
 
 {% block body %}
-    <h1>Service edit</h1>
-
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('service_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="row flex-grow">
+                <div class="col-12 stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">service creation</h4>
+                       
+                   {{ form_start(edit_form, {'class': 'forms-sample'}) }}
+                        <div class="form-group row">
+                          <label for="exampleInputEmail2" class="col-sm-3 col-form-label">name</label>
+                          <div class="col-sm-9">
+                          {{ form_widget(edit_form.name,{'attr': {'class': 'form-control', 'placeholder': 'name'}}) }}
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="exampleInputPassword2" class="col-sm-3 col-form-label">type</label>
+                          <div class="col-sm-9">
+                          {{ form_widget(edit_form.type, {'attr':{'class': 'form-control form-control-lg'}}) }}
+                          </div>
+                        </div>
+                         <div class="form-group row">
+                          <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Service Parent</label>
+                          <div class="col-sm-9">
+                          {{ form_widget(edit_form.parentId, {'attr':{'class': 'form-control form-control-lg'}}) }}
+                          </div>
+                        </div>
+                        <button type="submit" class="btn btn-success mr-2">Submit</button>
+                    {{ form_end(edit_form) }}
+                    </div>
+                  </div>
+                </div>
+              </div>
 {% endblock %}

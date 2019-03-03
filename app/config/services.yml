@@ -36,3 +36,10 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    app.form.registration:
+        class: UserBundle\Form\CustumerType
+        tags:
+            - { name: form.type, alias: app_user_registration }
+        arguments: ['@service_container']  
+        public: true  

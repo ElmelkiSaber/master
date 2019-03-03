@@ -3,6 +3,8 @@
 namespace MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * Localite
@@ -35,7 +37,23 @@ class Localite
      */
     private $parentId;
 
+    /**
+     * @ORM\OneToMany(targetEntity="UserBundle\Entity\Custumer", mappedBy="localiteId")
+     */
+    private $custumer;
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->custumer = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    public function __toString()
+     {
+      return $this->getName();
+     }
     /**
      * Get id.
      *
@@ -92,5 +110,41 @@ class Localite
     public function getParentId()
     {
         return $this->parentId;
+    }
+
+    /**
+     * Add custumer.
+     *
+     * @param \UserBundle\Entity\Custumer $custumer
+     *
+     * @return Localite
+     */
+    public function addCustumer(\UserBundle\Entity\Custumer $custumer)
+    {
+        $this->custumer[] = $custumer;
+
+        return $this;
+    }
+
+    /**
+     * Remove custumer.
+     *
+     * @param \UserBundle\Entity\Custumer $custumer
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeCustumer(\UserBundle\Entity\Custumer $custumer)
+    {
+        return $this->custumer->removeElement($custumer);
+    }
+
+    /**
+     * Get custumer.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCustumer()
+    {
+        return $this->custumer;
     }
 }

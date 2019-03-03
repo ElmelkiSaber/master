@@ -42,13 +42,12 @@ class ServiceController extends Controller
         $service = new Service();
         $form = $this->createForm('MainBundle\Form\ServiceType', $service);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $service->setParentId($service->getParentId()->getId());
             $em->persist($service);
             $em->flush();
-
-            return $this->redirectToRoute('service_show', array('id' => $service->getId()));
+            return $this->redirectToRoute('service_index');
         }
 
         return $this->render('service/new.html.twig', array(
@@ -86,9 +85,10 @@ class ServiceController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $service->setParentId($service->getParentId()->getId());
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('service_edit', array('id' => $service->getId()));
+            return $this->redirectToRoute('service_index');
         }
 
         return $this->render('service/edit.html.twig', array(

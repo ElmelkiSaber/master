@@ -42,6 +42,10 @@ class Assurance
      */
     private $description;
 
+    /**
+     * @ORM\OneToMany(targetEntity="UserBundle\Entity\Custumer", mappedBy="statusSocialId")
+     */
+    private $custumer;
 
     /**
      * Get id.
@@ -123,5 +127,48 @@ class Assurance
     public function getDescription()
     {
         return $this->description;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->custumer = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add custumer.
+     *
+     * @param \UserBundle\Entity\Custumer $custumer
+     *
+     * @return Assurance
+     */
+    public function addCustumer(\UserBundle\Entity\Custumer $custumer)
+    {
+        $this->custumer[] = $custumer;
+
+        return $this;
+    }
+
+    /**
+     * Remove custumer.
+     *
+     * @param \UserBundle\Entity\Custumer $custumer
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeCustumer(\UserBundle\Entity\Custumer $custumer)
+    {
+        return $this->custumer->removeElement($custumer);
+    }
+
+    /**
+     * Get custumer.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCustumer()
+    {
+        return $this->custumer;
     }
 }

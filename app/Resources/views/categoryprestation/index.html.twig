@@ -1,9 +1,14 @@
 {% extends "widget-admin.html.twig" %}
 
 {% block body %}
-    <h1>Categoryprestations list</h1>
-
-    <table>
+            <a class="btn btn-primary btn-fw" href="{{ path('category_prestation_new') }}">Create a new category prestation</a>
+              <div class="row">
+            <div class="col-lg-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Statut socials</h4>
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
@@ -21,23 +26,18 @@
                 <td>{{ categoryPrestation.type }}</td>
                 <td>{{ categoryPrestation.parentId }}</td>
                 <td>
-                    <ul>
-                        <li>
                             <a href="{{ path('category_prestation_show', { 'id': categoryPrestation.id }) }}">show</a>
-                        </li>
-                        <li>
+                        </td>
+                        <td>
                             <a href="{{ path('category_prestation_edit', { 'id': categoryPrestation.id }) }}">edit</a>
-                        </li>
-                    </ul>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('category_prestation_new') }}">Create a new categoryPrestation</a>
-        </li>
-    </ul>
+                              </div>
+                </div>
+              </div>
+            </div>
+          </div>
 {% endblock %}

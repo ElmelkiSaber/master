@@ -3,6 +3,8 @@
 namespace MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * StatutSocial
@@ -54,6 +56,11 @@ class StatutSocial
     }
 
     /**
+     * @ORM\OneToMany(targetEntity="UserBundle\Entity\Custumer", mappedBy="statusSocialId")
+     */
+    private $custumer;
+
+    /**
      * Set name.
      *
      * @param string $name
@@ -66,6 +73,14 @@ class StatutSocial
 
         return $this;
     }
+    public function __construct()
+    {
+        $this->custumer = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    public function __toString()
+     {
+      return $this->getName();
+     }
 
     /**
      * Get name.
